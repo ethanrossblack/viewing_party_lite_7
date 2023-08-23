@@ -8,6 +8,9 @@ RSpec.describe "The users discover page" do
 
   it "has a button to discover top rated movies" do
     expect(page).to have_button("Find Top Rated Movies")
+    click_button("Find Top Rated Movies")
+    save_and_open_page
+    expect(current_path).to eq(results_path)
   end
 
   it "has a text field to enter keyword(s) to search by movie title" do

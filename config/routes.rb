@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/register", to: "users#new"
   resources :users, only: [:create, :show] do
     get "/discover", to: "movies#discover"
-    get "/movies", to: "movies#search"
+    get "/movies", to: "movies#results"
   end
   
 end

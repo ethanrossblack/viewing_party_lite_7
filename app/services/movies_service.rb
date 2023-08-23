@@ -1,6 +1,10 @@
 class MoviesService
   def keyword_search(keyword)
-    get_url("search/keyword?query=#{keyword}&page=1")
+    get_url("search/movie?query=#{keyword}&page=1")
+  end
+
+  def top_20_search
+    get_url("movie/top_rated?language=en-US&with_original_language=en")
   end
 
   def get_url(url)
