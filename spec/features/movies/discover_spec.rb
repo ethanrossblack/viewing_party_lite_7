@@ -15,14 +15,18 @@ describe "Discover Movies Page" do
     end
   end
 
-  it "has a text field to enter keyword(s) to search by movie title" do
-    expect(page).to have_field("keywords")
-    expect(page).to have_button("Find Movies")
+  it "has a search field to enter keyword(s) to search by movie title" do
+    VCR.use_cassette("star_wars_search_results") do
+      within("#keyword-search") do
+        expect(page).to have_field("q")
+        expect(page).to have_button("Find Movies")
 
-    fill_in("keywords", with: "Star Wars")
-    click_button("Find Movies")
-    # save_and_open_page
-    expect(current_path).to eq(user_movies_path(@user))
+        fill_in("q", with: "Star Wars")
+        click_button("Find Movies")
+      end
+      
+      expect(current_path).to eq(user_movies_path(@user))
+    end
   end
 
   it "has a link to the root page" do
