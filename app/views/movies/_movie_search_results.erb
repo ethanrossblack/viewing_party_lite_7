@@ -1,0 +1,10 @@
+<%= button_to "Discover Movies", user_discover_path(user.id), method: :get %>
+
+<table>
+  <% movies.each do |movie| %>
+    <tr>
+      <td><%= link_to movie.title %></td>
+      <td>Vote Average: <%= movie.rating.round(1) %></td>
+    </tr>
+  <% end %>
+</table>
