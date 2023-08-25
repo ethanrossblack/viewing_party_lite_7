@@ -60,8 +60,22 @@ RSpec.describe "Movie" do
         expect(@movie.cast_list.first).to be_a CastMember
       end
     end
-  end
 
+    describe "#reviews" do
+      it "returns a collection of Review POROs" do
+        expect(@movie.reviews).to be_an Array
+        expect(@movie.reviews.length).to eq(5)
+        expect(@movie.reviews.first).to be_a Review
+      end
+    end
+
+    describe "#runtime_formatted" do
+      it "returns a string of the runtime in '$hr $min' syntax" do
+        expect(@movie.runtime_formatted).to be_a String
+        expect(@movie.runtime_formatted).to eq("2hr 55min")
+      end
+    end
+  end
 end
 
 

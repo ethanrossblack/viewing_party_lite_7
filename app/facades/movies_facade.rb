@@ -1,5 +1,5 @@
 class MoviesFacade
-  attr_reader :search
+  attr_reader :search, :keywords
 
   def initialize(search, keywords)
     @search = search
@@ -10,6 +10,14 @@ class MoviesFacade
     service = MoviesService.new
     json = service.get_movie_details(@search)
     Movie.new(json)
+  end
+
+  def movie_results
+    if @search == "top_20rated"
+      top_20_rated
+    else
+      keyword_results
+    end
   end
 
   def top_20_rated

@@ -65,9 +65,6 @@ RSpec.describe "User Registration Page", type: :feature do
       expect(current_path).to eq(register_path)
     end
 
-    # Maybe we ask Chris+Mike if we can use the 'email_validator' gem? 
-    # Read more => https://www.magicbell.com/blog/how-to-validate-email-in-ruby-on-rails
-    # Also: https://guides.rubyonrails.org/active_record_validations.html#custom-validators
     it "returns an error if the email is not a proper email" do
       not_email = "definitely NOT a valid email address"
       

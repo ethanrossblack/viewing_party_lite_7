@@ -1,5 +1,0 @@
-<ul>
-  <% @facade.keyword_results.each do |movie| %>
-    <li><%= link_to movie.title, user_movie_path(@user.id, movie.id) %>, <%= movie.rating %></li>
-  <% end %>
-</ul>

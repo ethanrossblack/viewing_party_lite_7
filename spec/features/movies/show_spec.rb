@@ -70,13 +70,10 @@ describe "Movie Details Page", type: :feature do
         find_review1 = page.first(".movie-review")
 
         within(find_review1) do
-          save_and_open_page
+          expect(page).to have_content("The Godfather Review by Al Carlson")
           within(".review-author") do
             expect(page).to have_content(review1.author)
           end
-
-          # I don't know how to test that the page shows the review content because of weird encoding stuff, using things like \n and \r.
-          # expect(page).to have_content(review1.content)
         end
       end
     end

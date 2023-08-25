@@ -1,5 +1,0 @@
-<ul>
-  <% @facade.top_20_rated.each do |movie| %>
-    <li><%= link_to movie.title, user_movie_path(@user.id, movie.id) %>, <%= movie.rating %></li>
-  <% end %>
-</ul>
