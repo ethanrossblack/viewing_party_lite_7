@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe MoviesService do
-  describe "instance methods" do
-    describe "#top_20_rated", :vcr do
-      it "returns the top 20 rated movies" do
-        VCR.use_cassette("top_20_rated_movies", re_record_interval: 7.days) do
+  describe 'instance methods' do
+    describe '#top_20_rated', :vcr do
+      it 'returns the top 20 rated movies' do
+        VCR.use_cassette('top_20_rated_movies', re_record_interval: 7.days) do
           top_20 = MoviesService.new.top_20_rated
 
           expect(top_20).to be_a Hash

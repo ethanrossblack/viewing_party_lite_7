@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MoviesFacade
   attr_reader :search, :keywords
 
@@ -5,7 +7,7 @@ class MoviesFacade
     @search = search
     @keywords = keywords
   end
-  
+
   def movie_details
     service = MoviesService.new
     json = service.get_movie_details(@search)
@@ -13,7 +15,7 @@ class MoviesFacade
   end
 
   def movie_results
-    if @search == "top_20rated"
+    if @search == 'top_20rated'
       top_20_rated
     else
       keyword_results

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateViewingPartyUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :viewing_party_users do |t|
