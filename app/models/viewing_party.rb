@@ -1,0 +1,3 @@
+class ViewingParty < ApplicationRecord
+
+end
